@@ -1,5 +1,6 @@
+#!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import greeting from '../src/cli';
+import greeting from '../src/cli.js';
 
 const userName = greeting();
 const isEven = (num) => num % 2 === 0;
@@ -24,4 +25,5 @@ const isEvenGame = () => {
 
   console.log(`Congratulations, ${userName}!`);
 };
+isEvenGame();
 export default isEvenGame;
