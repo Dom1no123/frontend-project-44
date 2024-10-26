@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-import calculator from '../src/games/calc.js';
-import runGame from '../src/index.js';
+// eslint-disable-next-line import/extensions
+import runCalc from '../src/games/calc.js';
 
-const calculatorGame = () => runGame(calculator);
-calculatorGame();
+runCalc();

@@ -1,7 +1,5 @@
 #!/usr/bin/env node
-import greeting from '../src/cli.js';
-import runGame from '../src/index.js';
-
-greetingGame = () => runGame(greeting);
+// eslint-disable-next-line import/extensions
+import greetingGame from '../src/cli.js';
 
 greetingGame();

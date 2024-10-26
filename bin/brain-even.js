@@ -1,8 +1,5 @@
 #!/usr/bin/env node
+// eslint-disable-next-line import/extensions
+import runEven from '../src/games/even.js';
 
-import runGame from "../src/index.js";
-import isEven from "../src/games/even.js";
-
-
-isEvenGame = () => runGame(isEven);
-isEvenGame();
+runEven();
