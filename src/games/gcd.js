@@ -8,7 +8,7 @@ const correctSolution = (firstNum, secondNum) => {
   let result = null;
   const maxNum = Math.max(firstNum, secondNum);
   // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < maxNum; i++) {
+  for (let i = 0; i <= maxNum; i++) {
     if (firstNum % i === 0 && secondNum % i === 0) {
       result = i;
     }
