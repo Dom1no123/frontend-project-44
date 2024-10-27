@@ -13,7 +13,8 @@ const runGame = (gameDescription, generateGameData) => {
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ').toLowerCase();
 
-    if (userAnswer !== correctAnswer) {
+    // eslint-disable-next-line max-len, no-restricted-globals
+    if (userAnswer !== correctAnswer || userAnswer === null || userAnswer === undefined || isNaN(userAnswer)) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
       return;
