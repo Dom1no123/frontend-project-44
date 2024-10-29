@@ -8,7 +8,7 @@ const correctSolution = (number1, number2) => {
   let result = null;
   const maxNum = Math.max(number1, number2);
 
-  for (let i = 0; i <= maxNum; i++) {
+  for (let i = 0; i <= maxNum; i += 1) {
     if (number1 % i === 0 && number2 % i === 0) {
       result = i;
     }

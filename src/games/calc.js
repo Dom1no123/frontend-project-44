@@ -13,7 +13,7 @@ const calculate = (number1, number2, operator) => {
     case '*':
       return number1 * number2;
     default:
-      break;
+      return null;
   }
 };
 

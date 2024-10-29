@@ -14,7 +14,7 @@ const correctSolution = (num) => {
       return false;
     }
   }
-  return true; 
+  return true;
 };
 
 const generateRound = () => {
