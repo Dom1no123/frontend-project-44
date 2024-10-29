@@ -1,18 +1,19 @@
-// eslint-disable-next-line import/extensions
+
 import runGame from '../index.js';
+import makeRandomNum from '../utils.js';
 
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const isEvenNum = (num) => num % 2 === 0;
+const isEven = (num) => num % 2 === 0;
 
-export const generateGameData = () => {
-  const randomNum = Math.floor(Math.random() * 100) + 1;
+export const generateRound = () => {
+  const randomNum = makeRandomNum();
   const question = randomNum;
-  const correctAnswer = isEvenNum(randomNum) ? 'yes' : 'no';
-  return [question, correctAnswer];
+  const answer = isEven(randomNum) ? 'yes' : 'no';
+  return [question, answer];
 };
 
 const runEven = () => {
-  runGame(gameDescription, generateGameData);
+  runGame(gameDescription, generateRound);
 };
 export default runEven;

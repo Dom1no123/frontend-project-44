@@ -1,30 +1,30 @@
 #!/usr/bin/env node
-// eslint-disable-next-line import/extensions
+import makeRandomNum from '../utils.js';
 import runGame from '../index.js';
 
 const gameDescription = 'Find the greatest common divisor of given numbers.';
 
-const correctSolution = (firstNum, secondNum) => {
+const correctSolution = (number1, number2) => {
   let result = null;
-  const maxNum = Math.max(firstNum, secondNum);
-  // eslint-disable-next-line no-plusplus
+  const maxNum = Math.max(number1, number2);
+
   for (let i = 0; i <= maxNum; i++) {
-    if (firstNum % i === 0 && secondNum % i === 0) {
+    if (number1 % i === 0 && number2 % i === 0) {
       result = i;
     }
   }
   return result;
 };
 
-const generateGameData = () => {
-  const firstNumber = Math.floor(Math.random() * 100) + 1;
-  const secondNumber = Math.floor(Math.random() * 100) + 1;
-  const question = `${firstNumber} ${secondNumber}`;
-  const correctAnswer = String(correctSolution(firstNumber, secondNumber));
-  return [question, correctAnswer];
+const generateRound = () => {
+  const number1 = makeRandomNum();
+  const number2 = makeRandomNum();
+  const question = `${number1} ${number2}`;
+  const answer = String(correctSolution(number1, number2));
+  return [question, answer];
 };
 
 const runNod = () => {
-  runGame(gameDescription, generateGameData);
+  runGame(gameDescription, generateRound);
 };
 export default runNod;

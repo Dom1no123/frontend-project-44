@@ -1,7 +1,6 @@
-#!/usr/bin/env node
 import readlineSync from 'readline-sync';
 
-const runGame = (gameDescription, generateGameData) => {
+const runGame = (gameDescription, generateRound) => {
   const roundsCount = 3;
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
@@ -9,13 +8,12 @@ const runGame = (gameDescription, generateGameData) => {
   console.log(gameDescription);
 
   for (let round = 1; round <= roundsCount; round += 1) {
-    const [question, correctAnswer] = generateGameData();
+    const [question, answer] = generateRound();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ').toLowerCase();
 
-    // eslint-disable-next-line max-len
-    if (userAnswer !== correctAnswer || userAnswer === null || userAnswer === undefined) {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+    if (userAnswer !== answer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
       console.log(`Let's try again, ${userName}!`);
       return;
     }

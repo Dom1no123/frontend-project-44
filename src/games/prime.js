@@ -1,10 +1,9 @@
 #!/usr/bin/env node
-// eslint-disable-next-line import/extensions
+import makeRandomNum from '../utils.js';
 import runGame from '../index.js';
 
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-// Проверка, является ли число простым
 const correctSolution = (num) => {
   if (num <= 1) return false;
   if (num <= 3) return true;
@@ -15,18 +14,17 @@ const correctSolution = (num) => {
       return false;
     }
   }
-  return true; // Добавлено для завершения функции
+  return true; 
 };
 
-const generateGameData = () => {
-  const randomNum = Math.floor(Math.random() * 100) + 1;
-  const question = randomNum;
-  const correctAnswer = correctSolution(randomNum) ? 'yes' : 'no';
-  return [question, correctAnswer];
+const generateRound = () => {
+  const randomNum = makeRandomNum();
+  const answer = correctSolution(randomNum) ? 'yes' : 'no';
+  return [randomNum, answer];
 };
 
 const runPrime = () => {
-  runGame(gameDescription, generateGameData);
+  runGame(gameDescription, generateRound);
 };
 
 export default runPrime;

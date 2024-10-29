@@ -10,8 +10,7 @@
     "brain-prime": "bin/brain-prime.js"
   },
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/Dom1no123/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Dom1no123/frontend-project-44/actions)",
-  "main": "index.js",
+  "description": "Brain Games - a set of mini-games to train logic and arithmetic skills. Developed to enhance JavaScript skills and experience working with CLI (command-line interface). Includes games like Even Check, Calculator, GCD, Arithmetic Progression, and Prime Number check.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
