@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import runGame from '../index.js';
 import makeRandomNum from '../utils.js';
 
@@ -13,21 +12,19 @@ const calculate = (number1, number2, operator) => {
     case '*':
       return number1 * number2;
     default:
-      return null;
+      throw new Error('Unknown state!');
   }
 };
 
 export const generateRound = () => {
-  const getRandomOperator = () => {
-    const operators = ['+', '-', '*'];
-    const randomIndex = Math.floor(Math.random() * operators.length);
-    return operators[randomIndex];
-  };
-  const number1 = makeRandomNum();
-  const secondNumber = makeRandomNum();
-  const operator = getRandomOperator();
-  const question = `${number1} ${operator} ${secondNumber}`;
-  const answer = String(calculate(number1, secondNumber, operator));
+  const operators = ['+', '-', '*'];
+  const randomIndex = makeRandomNum(operators.length);
+  const operator = operators[randomIndex];
+
+  const number1 = makeRandomNum(100, 1);
+  const number2 = makeRandomNum(100, 1);
+  const question = `${number1} ${operator} ${number2}`;
+  const answer = String(calculate(number1, number2, operator));
   return [question, answer];
 };
 

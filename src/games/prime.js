@@ -1,10 +1,9 @@
-#!/usr/bin/env node
 import makeRandomNum from '../utils.js';
 import runGame from '../index.js';
 
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const correctSolution = (num) => {
+const isPrime = (num) => {
   if (num <= 1) return false;
   if (num <= 3) return true;
   if (num % 2 === 0 || num % 3 === 0) return false;
@@ -18,8 +17,8 @@ const correctSolution = (num) => {
 };
 
 const generateRound = () => {
-  const randomNum = makeRandomNum();
-  const answer = correctSolution(randomNum) ? 'yes' : 'no';
+  const randomNum = makeRandomNum(100, 1);
+  const answer = isPrime(randomNum) ? 'yes' : 'no';
   return [randomNum, answer];
 };
 
